@@ -14,7 +14,7 @@ public class Solution {
             fast=squaresum(fast);
         }while(slow!=fast);  //if it loops endlessly, the fast will get the slow.
         if(slow==1) return 1;
-        else return 0
+        else return 0;
     }
     int squaresum(int n){
          int temp=0;
