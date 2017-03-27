@@ -19,7 +19,7 @@ public class Solution {
     int squaresum(int n){
          int temp=0;
          while(n!=0){
-             temp+=(n%10)^2;
+             temp+=(n%10)*(n%10);  //no!!(n%10)^2
              n=n/10;
          }   
          return temp;
