@@ -1,0 +1,27 @@
+/*
+Count the number of prime numbers less than a non-negative number, n.
+
+hint: q*p<n, then q<sqrt(n)
+the Sieve of Eratosthenes: 筛选 
+*/
+
+public class Solution {
+    public int countPrimes(int n) {
+        boolean[] isP=new boolean[n];
+        for(int i=2;i<n;i++){  //start from 2
+            isP[i]=true;
+        }
+        for(int i=2;i<=Math.sqrt(n);i++){   //Loop's ending condition is i * i < n instead of i < sqrt(n),to avoid repeatedly calling an expensive function sqrt().
+            if(!isP[i]) continue;  //ever marked off
+            for(int j=i*i;j<n;j+=i){  //j start from i*i because the number before has been marked off. j is a prime.
+                isP[j]=false;
+            }
+            
+        }
+        int count=0;
+        for(int i=2;i<n;i++){
+            if(isP[i]) count++;
+        }
+        return count;
+    }
+}
